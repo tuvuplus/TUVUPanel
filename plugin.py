@@ -203,7 +203,6 @@ def CmenuListEntry(name, idx):
     return res        
 
 class Panel(Screen):
-
 	def __init__(self, session):
 		Screen.__init__(self, session)
 		self.skin = SCREEN_INI
