@@ -202,7 +202,6 @@ def CmenuListEntry(name, idx):
         res.append(MultiContentEntryText(pos=(80, 10), size=(500, 120), font=0, text=name))
     return res        
 
-
 class Panel(Screen):
 
 	def __init__(self, session):
