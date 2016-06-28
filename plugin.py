@@ -43,7 +43,7 @@ SCREEN_INI = """
     <screen position="center,center" size="1280,720" title="TUVUPanel">
 		<ePixmap position="0,0" zPosition="-1" size="1279,719" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/TUVUPanel/images/fondo.png"/>
 		<eLabel position="center,center" size="1280,720" transparent="0" zPosition="-15" />
-		<widget source="session.CurrentService" render="RunningText" options="movetype=running,startpoint=0,direction=left,steptime=25,repeat=150,startdelay=1500,always=0" position="101,450" size="215,45" font="Regular; 22" transparent="1" valign="center" zPosition="2" backgroundColor="black" foregroundColor="white" noWrap="1" halign="center">
+		<widget source="session.CurrentService" render="RunningText" options="movetype=running,startpoint=0,direction=left,steptime=25,repeat=150,startdelay=1500,always=0" position="101,450" size="215,45" font="Regular; 22" transparent="1" valign="center" zPosition="2" backgroundColor="#2EFEF7" foregroundColor="#FFFFFF" noWrap="1" halign="center">
 			<convert type="ServiceName">Name</convert>
 		</widget>
 		<widget source="global.CurrentTime" render="Label" position="850,42" size="300,55" backgroundColor="un140b1" transparent="1" zPosition="2" font="Regular;16" valign="center" halign="right" shadowColor="#FFFFFF" shadowOffset="-2,-2">
@@ -52,10 +52,10 @@ SCREEN_INI = """
 		<widget source="global.CurrentTime" render="Label" position="899,20" size="251,55" transparent="1" zPosition="2" font="Regular;24" valign="center" halign="right" shadowColor="#FFFFFF" shadowOffset="-2,-2">
 		  <convert type="ClockToText">Format:%-H:%M</convert>
 		</widget>
-		<eLabel position="60,637" size="229,50" transparent="1" foregroundColor="white" backgroundColor="black" text="Tuvuplus.com" font="Regular;30" zPosition="1" halign="center" valign="bottom" />
-		<eLabel position="591,191" size="629,431" transparent="0" foregroundColor="white" backgroundColor="#6e6e6e" zPosition="-10" />
-		<widget name="menu" position="591,191" size="629,431" scrollbarMode="showOnDemand" transparent="1" itemHeight="60" />
-		<widget source="session.VideoPicture" render="Pig" position="64,156" size="488,198" backgroundColor="transparent" zPosition="-1" transparent="0" />
+		<eLabel position="60,637" size="229,50" transparent="1" foregroundColor="#FFFFFF" backgroundColor="#2E64FE" text="Tuvuplus.com" font="Regular;30" zPosition="1" halign="center" valign="bottom" />
+		<eLabel position="611,181" size="629,431" transparent="0" foregroundColor="white" backgroundColor="#6e6e6e" zPosition="-10" />
+		<widget name="menu" position="641,140" size="629,431" scrollbarMode="showOnDemand" transparent="1" itemHeight="60" />
+		<widget source="session.VideoPicture" render="Pig" position="44,136" size="498,208" backgroundColor="transparent" zPosition="-1" transparent="0" />
 	</screen>"""
 	
 SCREEN_IPTV = """
@@ -77,8 +77,8 @@ SCREEN_IPTV = """
 		<eLabel position="59,117" size="1100,50" transparent="1" foregroundColor="white" backgroundColor="black" text="  TUVUPanel" font="Regular;30" zPosition="1" valign="bottom" />
 		<eLabel position="60,637" size="229,50" transparent="1" foregroundColor="white" backgroundColor="black" text="Tuvuplus.com" font="Regular;30" zPosition="1" halign="center" valign="bottom" />
 		<eLabel position="591,191" size="629,431" transparent="0" foregroundColor="white" backgroundColor="#6e6e6e" zPosition="-10" />
-        <widget name="menu" position="591,191" size="629,431" scrollbarMode="showOnDemand" transparent="1" itemHeight="60" />
-		<widget source="session.VideoPicture" render="Pig" position="64,196" size="325,150" backgroundColor="transparent" zPosition="-1" transparent="0" />
+        <widget name="menu" position="641,140" size="629,431" scrollbarMode="showOnDemand" transparent="1" itemHeight="60" />
+		<widget source="session.VideoPicture" render="Pig" position="44,136" size="498,208" backgroundColor="transparent" zPosition="-1" transparent="0" />
 		<eLabel position="533,681" size="148,4" backgroundColor="#00ff2525" zPosition="1" />
 	    <eLabel position="710,681" size="148,4" backgroundColor="#00389416" zPosition="1" />
 	    <eLabel position="887,681" size="148,4" backgroundColor="#00baa329" zPosition="1" />
@@ -104,8 +104,8 @@ SCREEN_SWAP = """
 		<eLabel position="59,117" size="1100,50" transparent="1" foregroundColor="white" backgroundColor="black" text="  TUVUPanel" font="Regular;30" zPosition="1" valign="bottom" />
 		<eLabel position="60,637" size="229,50" transparent="1" foregroundColor="white" backgroundColor="black" text="Tuvuplus.com" font="Regular;30" zPosition="1" halign="center" valign="bottom" />
 		<eLabel position="591,191" size="629,431" transparent="0" foregroundColor="white" backgroundColor="#6e6e6e" zPosition="-10" />
-        <widget name="menu" position="591,191" size="629,431" scrollbarMode="showOnDemand" transparent="1" itemHeight="60" />
-		<widget source="session.VideoPicture" render="Pig" position="64,196" size="325,150" backgroundColor="transparent" zPosition="-1" transparent="0" />
+        <widget name="menu" position="641,140" size="629,431" scrollbarMode="showOnDemand" transparent="1" itemHeight="60" />
+		<widget source="session.VideoPicture" render="Pig" position="44,136" size="498,208" backgroundColor="transparent" zPosition="-1" transparent="0" />
 		<eLabel position="533,681" size="148,4" backgroundColor="#00ff2525" zPosition="1" />
 	    <eLabel position="710,681" size="148,4" backgroundColor="#00389416" zPosition="1" />
 	    <eLabel position="887,681" size="148,4" backgroundColor="#00baa329" zPosition="1" />
@@ -131,8 +131,8 @@ SCREEN_CLEAN_MEMORY = """
 	<eLabel position="59,117" size="1100,50" transparent="1" foregroundColor="white" backgroundColor="black" text="  TUVUPanel" font="Regular;30" zPosition="1" valign="bottom" />
 	<eLabel position="60,637" size="229,50" transparent="1" foregroundColor="white" backgroundColor="black" text="Tuvuplus.com" font="Regular;30" zPosition="1" halign="center" valign="bottom" />
 	<eLabel position="591,191" size="629,431" transparent="0" foregroundColor="white" backgroundColor="#6e6e6e" zPosition="-10" />
-    <widget name="menu" position="591,191" size="629,431" scrollbarMode="showOnDemand" transparent="1" itemHeight="60" />
-    <widget source="session.VideoPicture" render="Pig" position="64,196" size="325,150" backgroundColor="transparent" zPosition="-1" transparent="0" />
+    <widget name="menu" position="641,140" size="629,431" scrollbarMode="showOnDemand" transparent="1" itemHeight="60" />
+		<widget source="session.VideoPicture" render="Pig" position="44,136" size="498,208" backgroundColor="transparent" zPosition="-1" transparent="0" />
 	<eLabel position="533,681" size="148,4" backgroundColor="#00ff2525" zPosition="1" />
 	<eLabel position="710,681" size="148,4" backgroundColor="#00389416" zPosition="1" />
 	<eLabel position="887,681" size="148,4" backgroundColor="#00baa329" zPosition="1" />
@@ -144,7 +144,7 @@ SCREEN_DOWNLOADS =  """
 <ePixmap position="0,0" zPosition="-1" size="1279,719" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/TUVUPanel/images/fondo.png"/>
  <eLabel halign="center" position="433,25" size="430,68" font="Regular;36" text="PAnel TUvuPlus" transparent="1" foregroundColor="#ffffff" valign="bottom" />
   <eLabel position="center,center" size="1280,720" transparent="0" zPosition="-15" backgroundColor="#d6d6d6" />
-<widget source="session.CurrentService" render="RunningText" options="movetype=running,startpoint=0,direction=left,steptime=25,repeat=150,startdelay=1500,always=0" position="101,450" size="215,45" font="Regular; 22" transparent="1" valign="center" zPosition="2" backgroundColor="black" foregroundColor="white" noWrap="1" halign="center">
+<widget source="session.CurrentService" render="RunningText" options="movetype=running,startpoint=0,direction=left,steptime=25,repeat=150,startdelay=1500,always=0" position="101,450" size="215,45" font="Regular; 22" transparent="1" valign="center" zPosition="2" backgroundColor="#2EFEF7" foregroundColor="#FFFFFF" noWrap="1" halign="center">
     <convert type="ServiceName">Name</convert>
   </widget>
 <widget source="global.CurrentTime" render="Label" position="900,50" size="300,55" backgroundColor="un140b1" transparent="1" zPosition="2" font="Regular;16" valign="center" halign="right" shadowColor="#000000" shadowOffset="-2,-2">
@@ -158,8 +158,8 @@ SCREEN_DOWNLOADS =  """
   <eLabel position="59,117" size="1100,50" transparent="1" foregroundColor="white" backgroundColor="black" text="  TUVUPanel" font="Regular;30" zPosition="1" valign="bottom" />
   <eLabel position="60,637" size="229,50" transparent="1" foregroundColor="white" backgroundColor="black" text="Tuvuplus.com" font="Regular;30" zPosition="1" halign="center" valign="bottom" />
   <eLabel position="610,190" size="580,500" transparent="0" foregroundColor="white" backgroundColor="#6e6e6e" zPosition="-10" />
-            <widget name="menu" position="610,190" size="580,500" scrollbarMode="showOnDemand" transparent="1" itemHeight="60" />
-      <widget source="session.VideoPicture" render="Pig" position="64,196" size="325,150" backgroundColor="transparent" zPosition="-1" transparent="0" />
+            <widget name="menu" position="641,140" size="629,431" scrollbarMode="showOnDemand" transparent="1" itemHeight="60" />
+		<widget source="session.VideoPicture" render="Pig" position="44,136" size="498,208" backgroundColor="transparent" zPosition="-1" transparent="0" />
   <eLabel position="533,681" size="148,4" backgroundColor="#00ff2525" zPosition="1" />
 	    <eLabel position="710,681" size="148,4" backgroundColor="#00389416" zPosition="1" />
 	    <eLabel position="887,681" size="148,4" backgroundColor="#00baa329" zPosition="1" />
@@ -374,8 +374,7 @@ class clear_memory(Screen):
             self.close
 
 class Download(Screen):
-    skin =
-
+  
     def __init__(self, session):
         self.skin = SCREEN_DOWNLOADS
         Screen.__init__(self, session)

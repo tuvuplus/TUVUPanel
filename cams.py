@@ -24,11 +24,11 @@ class installextra(Screen):
     skin = """
     <screen name="installCam" position="center,center" size="1280,720" title="TUVuplus">
     <ePixmap position="0,0" zPosition="-1" size="1279,719" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/TUVUPanel/images/fondo.png"/>
-            <widget source="session.VideoPicture" render="Pig" position="64,196" size="325,150" backgroundColor="transparent" zPosition="-1" transparent="0" />
+            <widget source="session.VideoPicture" render="Pig" position="44,136" size="498,208" backgroundColor="transparent" zPosition="-1" transparent="0" />
  <!-- /* LOGOPLUS -->
  <eLabel halign="center" position="433,25" size="430,68" backgroundColor="#42b3" font="Regular;36" text="DESCARGAS" transparent="1" foregroundColor="#ffffff" valign="bottom" />
   <eLabel position="center,center" size="1280,720" transparent="0" zPosition="-15" backgroundColor="#d6d6d6" />
-<widget source="session.CurrentService" render="RunningText" options="movetype=running,startpoint=0,direction=left,steptime=25,repeat=150,startdelay=1500,always=0" position="101,450" size="215,45" font="Regular; 22" transparent="1" valign="center" zPosition="2" backgroundColor="black" foregroundColor="white" noWrap="1" halign="center">
+<widget source="session.CurrentService" render="RunningText" options="movetype=running,startpoint=0,direction=left,steptime=25,repeat=150,startdelay=1500,always=0" position="101,450" size="215,45" font="Regular; 22" transparent="1" valign="center" zPosition="2" backgroundColor="#2EFEF7" foregroundColor="#FFFFFF" noWrap="1" halign="center">
     <convert type="ServiceName">Name</convert>
   </widget>
 <widget source="global.CurrentTime" render="Label" position="900,50" size="300,55" backgroundColor="un140b1" foregroundColor="metrixAccent2" transparent="1" zPosition="2" font="Regular;16" valign="center" halign="right" shadowColor="#000000" shadowOffset="-2,-2">
@@ -40,7 +40,7 @@ class installextra(Screen):
     <ePixmap name="red" position="620,658" zPosition="2" size="170,2" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/TUVuplus/images/red.png" transparent="1" alphatest="on" />
     <ePixmap name="green" position="825,658" zPosition="2" size="170,2" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/TUVuplus/images/green.png" transparent="1" alphatest="on" />
     <widget name="key_red" position="620,638" zPosition="2" size="170,30" valign="center" halign="center" font="Regular;22" transparent="1" />
-    \n\t\t\t<widget name="list" position="610,190" size="580,500" scrollbarMode="showOnDemand" transparent="1" />\n\t\t\t<eLabel position="70,100" zPosition="-1" />
+    \n\t\t\t<widget name="list" position="641,140" size="629,431" scrollbarMode="showOnDemand" transparent="1" />\n\t\t\t<eLabel position="70,100" zPosition="-1" />
     \n\t\t        <widget name="fspace" position="0,320" zPosition="4" size="600,80" font="Regular;24" foregroundColor="#aaaaaa" transparent="1" halign="left" valign="center" />
    </screen>"""
 

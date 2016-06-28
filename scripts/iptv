@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo ''
-wget -O /etc/enigma2/userbouquet.iptv-Streaming_.tv "http://ip:puerto/playlist.php?username=user&password=pass&e2&output=mpegts" && chmod 777 /etc/enigma2/userbouquet.vti-Streaming_.tv && /etc/enigma2/userbouquet.iptv-Streaming_.tv
+wget -O /etc/enigma2/userbouquet.Streaming_.tv "http://ip:puerto/playlist.php?username=user&password=pass&e2&output=mpegts" && chmod 777 /etc/enigma2/userbouquet.Streaming_.tv && /etc/enigma2/userbouquet.Streaming_.tv
 exit 0
 
 
