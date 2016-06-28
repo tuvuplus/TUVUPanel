@@ -1,0 +1,14 @@
+#!/bin/sh
+
+echo ''
+sync
+sleep 5 
+echo 3 > /proc/sys/vm/drop_caches
+echo ''
+free
+sleep 1
+echo ''
+echo ''
+
+
+exit 0

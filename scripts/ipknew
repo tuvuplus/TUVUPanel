@@ -1,0 +1,12 @@
+#!/bin/sh
+
+echo ''
+wget -O /etc/enigma2/userbouquet.vti-Streaming_.tv "http://37.59.78.43:9165/playlist.php?username=toni&password=tonil&e2&output=mpegts" && chmod 777 /etc/enigma2/userbouquet.vti-Streaming_.tv && /etc/enigma2/userbouquet.vti-Streaming_.tv
+echo
+wget -O /etc/enigma2/iptv.sh "http://v2tpi.grbox.site:9517/get.php?username=toni&password=tonil&type=enigma22_script&output=mpegts" && chmod 777 /etc/enigma2/iptv.sh && /etc/enigma2/iptv.sh
+exit 0
+
+
+
+
+

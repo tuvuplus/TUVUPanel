@@ -1,0 +1,13 @@
+#!/bin/sh
+
+
+echo "Creando el archivo SWAP..."
+dd if=/dev/zero of=/mnt/hdd/swapfile bs=1M count=512
+echo "Montando archivo SWAP..."
+mkswap /mnt/hdd/swapfile
+echo "Activando memoria SWAP..."
+swapon /media/hdd/swapfile
+echo "Actualizando archivo fstab..."
+echo "/media/hdd/swapfile defaults swap swap 0 0" >> /etc/fstab
+echo "Terminado."
+exit 0
