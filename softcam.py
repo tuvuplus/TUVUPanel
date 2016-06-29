@@ -65,7 +65,7 @@ SCREEN_SOFTCAM = """
 class SoftcamPanel(ConfigListScreen, Screen):
 	def __init__(self, session):
 		global emuDir
-		emuDir = "/usr/camEmu"
+		emuDir = "/usr/tuvuscripts"
 		self.service = None
 		Screen.__init__(self, session)
 
