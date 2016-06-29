@@ -33,7 +33,8 @@ from twisted.web.client import getPage
 import urllib
 from enigma import *
 from os import listdir
-import cams
+from Plugins.Extensions.TUVUPanel.cams import *
+from Plugins.Extensions.TUVUPanel.softcam import *
 currversion = '0.9'
 plugin_path = '/usr/lib/enigma2/python/Plugins/Extensions/TUVUPanel/'
 
@@ -169,7 +170,8 @@ SCREEN_DOWNLOADS =  """
  </screen>"""
 
 
-Cmenu_list = [_('Actualizar Iptv'),
+Cmenu_list = [_('Cams'),
+ _('Actualizar Iptv'),
  _('Swap'),
  _('Liberar memoria'),
  _('Descargas')]
@@ -265,7 +267,9 @@ class Panel(Screen):
                 self.session.open(clear_memory)
             elif sel == _('Descargas'):
                 self.session.open(Download)
-                
+            elif sel == _('Cams'):
+                self.session.open(SoftcamPanel)
+				
         def upgrade(self):
 		self.session.open(Upgrade)
                 
