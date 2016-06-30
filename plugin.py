@@ -33,7 +33,7 @@ from twisted.web.client import getPage
 import urllib
 from enigma import *
 from os import listdir
-import cams
+from Plugins.Extensions.TUVUPanel.cams import *
 from Plugins.Extensions.TUVUPanel.softcam import *
 currversion = '0.9'
 plugin_path = '/usr/lib/enigma2/python/Plugins/Extensions/TUVUPanel/'
@@ -62,101 +62,112 @@ SCREEN_INI = """
 SCREEN_IPTV = """
     <screen position="center,center" size="1280,720" title="TUVUPanel - iptv">
 		<ePixmap position="0,0" zPosition="-1" size="1279,719" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/TUVUPanel/images/fondo.png"/>
-		<eLabel position="center,center" size="1280,720" transparent="0" zPosition="-15" />
-		<widget source="session.CurrentService" render="RunningText" options="movetype=running,startpoint=0,direction=left,steptime=25,repeat=150,startdelay=1500,always=0" position="101,450" size="215,45" font="Regular; 22" transparent="1" valign="center" zPosition="2" backgroundColor="#2EFEF7" foregroundColor="#FFFFFF" noWrap="1" halign="center">
+		<eLabel halign="center" position="433,25" size="430,68" font="Regular;36" text="PAnel TUvuPlus" transparent="1" foregroundColor="#ffffff" valign="bottom" />
+		<eLabel position="center,center" size="1280,720" transparent="0" zPosition="-15" backgroundColor="#d6d6d6" />
+		<widget source="session.CurrentService" render="RunningText" options="movetype=running,startpoint=0,direction=left,steptime=25,repeat=150,startdelay=1500,always=0" position="101,450" size="215,45" font="Regular; 22" transparent="1" valign="center" zPosition="2" backgroundColor="black" foregroundColor="white" noWrap="1" halign="center">
 			<convert type="ServiceName">Name</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="850,42" size="300,55" backgroundColor="un140b1" transparent="1" zPosition="2" font="Regular;16" valign="center" halign="right" shadowColor="#FFFFFF" shadowOffset="-2,-2">
+		<widget source="global.CurrentTime" render="Label" position="900,50" size="300,55" backgroundColor="un140b1" transparent="1" zPosition="2" font="Regular;16" valign="center" halign="right" shadowColor="#000000" shadowOffset="-2,-2">
 		  <convert type="ClockToText">Date</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="899,20" size="251,55" transparent="1" zPosition="2" font="Regular;24" valign="center" halign="right" shadowColor="#FFFFFF" shadowOffset="-2,-2">
+		<widget source="global.CurrentTime" render="Label" position="949,28" size="251,55" transparent="1" zPosition="2" font="Regular;24" valign="center" halign="right" shadowColor="#000000" shadowOffset="-2,-2">
 		  <convert type="ClockToText">Format:%-H:%M</convert>
 		</widget>
-		<eLabel position="60,637" size="229,50" transparent="1" foregroundColor="#FFFFFF" backgroundColor="#2E64FE" text="Tuvuplus.com" font="Regular;30" zPosition="1" halign="center" valign="bottom" />
-		<eLabel position="611,181" size="629,431" transparent="0" foregroundColor="white" backgroundColor="#6e6e6e" zPosition="-10" />
-		<widget name="menu" position="641,140" size="629,431" scrollbarMode="showOnDemand" transparent="1" itemHeight="60" />
+		<eLabel position="60,120" size="1160,50" transparent="0" foregroundColor="white" backgroundColor="black" font="Regular;30" />
+		<eLabel position="60,640" size="229,50" transparent="0" foregroundColor="white" backgroundColor="black" font="Regular;30" />
+		<eLabel position="59,117" size="1100,50" transparent="1" foregroundColor="white" backgroundColor="black" text="  TUVUPanel" font="Regular;30" zPosition="1" valign="bottom" />
+		<eLabel position="60,637" size="229,50" transparent="1" foregroundColor="white" backgroundColor="black" text="Tuvuplus.com" font="Regular;30" zPosition="1" halign="center" valign="bottom" />
+		<eLabel position="591,191" size="629,431" transparent="0" foregroundColor="white" backgroundColor="#6e6e6e" zPosition="-10" />
+        <widget name="menu" position="641,140" size="629,431" scrollbarMode="showOnDemand" transparent="1" itemHeight="60" />
 		<widget source="session.VideoPicture" render="Pig" position="44,136" size="498,208" backgroundColor="transparent" zPosition="-1" transparent="0" />
+		<eLabel position="533,681" size="148,4" backgroundColor="#00ff2525" zPosition="1" />
+	    <eLabel position="710,681" size="148,4" backgroundColor="#00389416" zPosition="1" />
+	    <eLabel position="887,681" size="148,4" backgroundColor="#00baa329" zPosition="1" />
+	    <eLabel position="1064,681" size="148,4" backgroundColor="#006565ff" zPosition="1" />
 	</screen>"""
 
 SCREEN_SWAP = """
     <screen position="center,center" size="1280,720" title="TUVUPanel - swap">
 		<ePixmap position="0,0" zPosition="-1" size="1279,719" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/TUVUPanel/images/fondo.png"/>
-		<eLabel position="center,center" size="1280,720" transparent="0" zPosition="-15" />
-		<widget source="session.CurrentService" render="RunningText" options="movetype=running,startpoint=0,direction=left,steptime=25,repeat=150,startdelay=1500,always=0" position="101,450" size="215,45" font="Regular; 22" transparent="1" valign="center" zPosition="2" backgroundColor="#2EFEF7" foregroundColor="#FFFFFF" noWrap="1" halign="center">
+		<eLabel halign="center" position="433,25" size="430,68" font="Regular;36" text="PAnel TUvuPlus" transparent="1" foregroundColor="#ffffff" valign="bottom" />
+		<eLabel position="center,center" size="1280,720" transparent="0" zPosition="-15" backgroundColor="#d6d6d6" />
+		<widget source="session.CurrentService" render="RunningText" options="movetype=running,startpoint=0,direction=left,steptime=25,repeat=150,startdelay=1500,always=0" position="101,450" size="215,45" font="Regular; 22" transparent="1" valign="center" zPosition="2" backgroundColor="black" foregroundColor="white" noWrap="1" halign="center">
 			<convert type="ServiceName">Name</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="850,42" size="300,55" backgroundColor="un140b1" transparent="1" zPosition="2" font="Regular;16" valign="center" halign="right" shadowColor="#FFFFFF" shadowOffset="-2,-2">
+		<widget source="global.CurrentTime" render="Label" position="900,50" size="300,55" backgroundColor="un140b1" transparent="1" zPosition="2" font="Regular;16" valign="center" halign="right" shadowColor="#000000" shadowOffset="-2,-2">
 		  <convert type="ClockToText">Date</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="899,20" size="251,55" transparent="1" zPosition="2" font="Regular;24" valign="center" halign="right" shadowColor="#FFFFFF" shadowOffset="-2,-2">
+		<widget source="global.CurrentTime" render="Label" position="949,28" size="251,55" transparent="1" zPosition="2" font="Regular;24" valign="center" halign="right" shadowColor="#000000" shadowOffset="-2,-2">
 		  <convert type="ClockToText">Format:%-H:%M</convert>
 		</widget>
-		<eLabel position="60,637" size="229,50" transparent="1" foregroundColor="#FFFFFF" backgroundColor="#2E64FE" text="Tuvuplus.com" font="Regular;30" zPosition="1" halign="center" valign="bottom" />
-		<eLabel position="611,181" size="629,431" transparent="0" foregroundColor="white" backgroundColor="#6e6e6e" zPosition="-10" />
-		<widget name="menu" position="641,140" size="629,431" scrollbarMode="showOnDemand" transparent="1" itemHeight="60" />
+		<eLabel position="60,120" size="1160,50" transparent="0" foregroundColor="white" backgroundColor="black" font="Regular;30" />
+		<eLabel position="60,640" size="229,50" transparent="0" foregroundColor="white" backgroundColor="black" font="Regular;30" />
+		<eLabel position="59,117" size="1100,50" transparent="1" foregroundColor="white" backgroundColor="black" text="  TUVUPanel" font="Regular;30" zPosition="1" valign="bottom" />
+		<eLabel position="60,637" size="229,50" transparent="1" foregroundColor="white" backgroundColor="black" text="Tuvuplus.com" font="Regular;30" zPosition="1" halign="center" valign="bottom" />
+		<eLabel position="591,191" size="629,431" transparent="0" foregroundColor="white" backgroundColor="#6e6e6e" zPosition="-10" />
+        <widget name="menu" position="641,140" size="629,431" scrollbarMode="showOnDemand" transparent="1" itemHeight="60" />
 		<widget source="session.VideoPicture" render="Pig" position="44,136" size="498,208" backgroundColor="transparent" zPosition="-1" transparent="0" />
+		<eLabel position="533,681" size="148,4" backgroundColor="#00ff2525" zPosition="1" />
+	    <eLabel position="710,681" size="148,4" backgroundColor="#00389416" zPosition="1" />
+	    <eLabel position="887,681" size="148,4" backgroundColor="#00baa329" zPosition="1" />
+	    <eLabel position="1064,681" size="148,4" backgroundColor="#006565ff" zPosition="1" />
 	</screen>"""
 
 SCREEN_CLEAN_MEMORY = """
     <screen position="center,center" size="1280,720" title="TUVUPanel - Liberador memoria">
-		<ePixmap position="0,0" zPosition="-1" size="1279,719" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/TUVUPanel/images/fondo.png"/>
-		<eLabel position="center,center" size="1280,720" transparent="0" zPosition="-15" />
-		<widget source="session.CurrentService" render="RunningText" options="movetype=running,startpoint=0,direction=left,steptime=25,repeat=150,startdelay=1500,always=0" position="101,450" size="215,45" font="Regular; 22" transparent="1" valign="center" zPosition="2" backgroundColor="#2EFEF7" foregroundColor="#FFFFFF" noWrap="1" halign="center">
-			<convert type="ServiceName">Name</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="850,42" size="300,55" backgroundColor="un140b1" transparent="1" zPosition="2" font="Regular;16" valign="center" halign="right" shadowColor="#FFFFFF" shadowOffset="-2,-2">
-		  <convert type="ClockToText">Date</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="899,20" size="251,55" transparent="1" zPosition="2" font="Regular;24" valign="center" halign="right" shadowColor="#FFFFFF" shadowOffset="-2,-2">
-		  <convert type="ClockToText">Format:%-H:%M</convert>
-		</widget>
-		<eLabel position="60,637" size="229,50" transparent="1" foregroundColor="#FFFFFF" backgroundColor="#2E64FE" text="Tuvuplus.com" font="Regular;30" zPosition="1" halign="center" valign="bottom" />
-		<eLabel position="611,181" size="629,431" transparent="0" foregroundColor="white" backgroundColor="#6e6e6e" zPosition="-10" />
-		<widget name="menu" position="641,140" size="629,431" scrollbarMode="showOnDemand" transparent="1" itemHeight="60" />
+    <ePixmap position="0,0" zPosition="-1" size="1279,719" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/TUVUPanel/images/fondo.png"/>
+	<eLabel halign="center" position="433,25" size="430,68" font="Regular;36" text="PAnel TUvuPlus" transparent="1" foregroundColor="#ffffff" valign="bottom" />
+	<eLabel position="center,center" size="1280,720" transparent="0" zPosition="-15" backgroundColor="#d6d6d6" />
+	<widget source="session.CurrentService" render="RunningText" options="movetype=running,startpoint=0,direction=left,steptime=25,repeat=150,startdelay=1500,always=0" position="101,450" size="215,45" font="Regular; 22" transparent="1" valign="center" zPosition="2" backgroundColor="black" foregroundColor="white" noWrap="1" halign="center">
+		<convert type="ServiceName">Name</convert>
+	</widget>
+	<widget source="global.CurrentTime" render="Label" position="900,50" size="300,55" backgroundColor="un140b1" transparent="1" zPosition="2" font="Regular;16" valign="center" halign="right" shadowColor="#000000" shadowOffset="-2,-2">
+	  <convert type="ClockToText">Date</convert>
+	</widget>
+	<widget source="global.CurrentTime" render="Label" position="949,28" size="251,55" transparent="1" zPosition="2" font="Regular;24" valign="center" halign="right" shadowColor="#000000" shadowOffset="-2,-2">
+	  <convert type="ClockToText">Format:%-H:%M</convert>
+	</widget>
+	<eLabel position="60,120" size="1160,50" transparent="0" foregroundColor="white" backgroundColor="black" font="Regular;30" />
+	<eLabel position="60,640" size="229,50" transparent="0" foregroundColor="white" backgroundColor="black" font="Regular;30" />
+	<eLabel position="59,117" size="1100,50" transparent="1" foregroundColor="white" backgroundColor="black" text="  TUVUPanel" font="Regular;30" zPosition="1" valign="bottom" />
+	<eLabel position="60,637" size="229,50" transparent="1" foregroundColor="white" backgroundColor="black" text="Tuvuplus.com" font="Regular;30" zPosition="1" halign="center" valign="bottom" />
+	<eLabel position="591,191" size="629,431" transparent="0" foregroundColor="white" backgroundColor="#6e6e6e" zPosition="-10" />
+    <widget name="menu" position="641,140" size="629,431" scrollbarMode="showOnDemand" transparent="1" itemHeight="60" />
 		<widget source="session.VideoPicture" render="Pig" position="44,136" size="498,208" backgroundColor="transparent" zPosition="-1" transparent="0" />
-	</screen>"""
+	<eLabel position="533,681" size="148,4" backgroundColor="#00ff2525" zPosition="1" />
+	<eLabel position="710,681" size="148,4" backgroundColor="#00389416" zPosition="1" />
+	<eLabel position="887,681" size="148,4" backgroundColor="#00baa329" zPosition="1" />
+	<eLabel position="1064,681" size="148,4" backgroundColor="#006565ff" zPosition="1" />
+ </screen>"""
 
 SCREEN_DOWNLOADS =  """
           <screen position="center,center" size="1280,720" title="TUVUPanel - Descargas">
-		<ePixmap position="0,0" zPosition="-1" size="1279,719" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/TUVUPanel/images/fondo.png"/>
-		<eLabel position="center,center" size="1280,720" transparent="0" zPosition="-15" />
-		<widget source="session.CurrentService" render="RunningText" options="movetype=running,startpoint=0,direction=left,steptime=25,repeat=150,startdelay=1500,always=0" position="101,450" size="215,45" font="Regular; 22" transparent="1" valign="center" zPosition="2" backgroundColor="#2EFEF7" foregroundColor="#FFFFFF" noWrap="1" halign="center">
-			<convert type="ServiceName">Name</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="850,42" size="300,55" backgroundColor="un140b1" transparent="1" zPosition="2" font="Regular;16" valign="center" halign="right" shadowColor="#FFFFFF" shadowOffset="-2,-2">
-		  <convert type="ClockToText">Date</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="899,20" size="251,55" transparent="1" zPosition="2" font="Regular;24" valign="center" halign="right" shadowColor="#FFFFFF" shadowOffset="-2,-2">
-		  <convert type="ClockToText">Format:%-H:%M</convert>
-		</widget>
-		<eLabel position="60,637" size="229,50" transparent="1" foregroundColor="#FFFFFF" backgroundColor="#2E64FE" text="Tuvuplus.com" font="Regular;30" zPosition="1" halign="center" valign="bottom" />
-		<eLabel position="611,181" size="629,431" transparent="0" foregroundColor="white" backgroundColor="#6e6e6e" zPosition="-10" />
-		<widget name="menu" position="641,140" size="629,431" scrollbarMode="showOnDemand" transparent="1" itemHeight="60" />
+<ePixmap position="0,0" zPosition="-1" size="1279,719" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/TUVUPanel/images/fondo.png"/>
+ <eLabel halign="center" position="433,25" size="430,68" font="Regular;36" text="PAnel TUvuPlus" transparent="1" foregroundColor="#ffffff" valign="bottom" />
+  <eLabel position="center,center" size="1280,720" transparent="0" zPosition="-15" backgroundColor="#d6d6d6" />
+<widget source="session.CurrentService" render="RunningText" options="movetype=running,startpoint=0,direction=left,steptime=25,repeat=150,startdelay=1500,always=0" position="101,450" size="215,45" font="Regular; 22" transparent="1" valign="center" zPosition="2" backgroundColor="#2EFEF7" foregroundColor="#FFFFFF" noWrap="1" halign="center">
+    <convert type="ServiceName">Name</convert>
+  </widget>
+<widget source="global.CurrentTime" render="Label" position="900,50" size="300,55" backgroundColor="un140b1" transparent="1" zPosition="2" font="Regular;16" valign="center" halign="right" shadowColor="#000000" shadowOffset="-2,-2">
+  <convert type="ClockToText">Date</convert>
+</widget>
+<widget source="global.CurrentTime" render="Label" position="949,28" size="251,55" transparent="1" zPosition="2" font="Regular;24" valign="center" halign="right" shadowColor="#000000" shadowOffset="-2,-2">
+  <convert type="ClockToText">Format:%-H:%M</convert>
+</widget>
+<eLabel position="60,120" size="1160,50" transparent="0" foregroundColor="white" backgroundColor="black" font="Regular;30" />
+ <eLabel position="60,640" size="229,50" transparent="0" foregroundColor="white" backgroundColor="black" font="Regular;30" />
+  <eLabel position="59,117" size="1100,50" transparent="1" foregroundColor="white" backgroundColor="black" text="  TUVUPanel" font="Regular;30" zPosition="1" valign="bottom" />
+  <eLabel position="60,637" size="229,50" transparent="1" foregroundColor="white" backgroundColor="black" text="Tuvuplus.com" font="Regular;30" zPosition="1" halign="center" valign="bottom" />
+  <eLabel position="610,190" size="580,500" transparent="0" foregroundColor="white" backgroundColor="#6e6e6e" zPosition="-10" />
+            <widget name="menu" position="641,140" size="629,431" scrollbarMode="showOnDemand" transparent="1" itemHeight="60" />
 		<widget source="session.VideoPicture" render="Pig" position="44,136" size="498,208" backgroundColor="transparent" zPosition="-1" transparent="0" />
-	</screen>"""
-
-#skin emus
-
-SCREEN_SoftcamPanel =  """
-          <screen position="center,center" size="1280,720" title="TUVUPanel - Emus">
-		<ePixmap position="0,0" zPosition="-1" size="1279,719" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/TUVUPanel/images/fondo.png"/>
-		<eLabel position="center,center" size="1280,720" transparent="0" zPosition="-15" />
-		<widget source="session.CurrentService" render="RunningText" options="movetype=running,startpoint=0,direction=left,steptime=25,repeat=150,startdelay=1500,always=0" position="101,450" size="215,45" font="Regular; 22" transparent="1" valign="center" zPosition="2" backgroundColor="#2EFEF7" foregroundColor="#FFFFFF" noWrap="1" halign="center">
-			<convert type="ServiceName">Name</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="850,42" size="300,55" backgroundColor="un140b1" transparent="1" zPosition="2" font="Regular;16" valign="center" halign="right" shadowColor="#FFFFFF" shadowOffset="-2,-2">
-		  <convert type="ClockToText">Date</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="899,20" size="251,55" transparent="1" zPosition="2" font="Regular;24" valign="center" halign="right" shadowColor="#FFFFFF" shadowOffset="-2,-2">
-		  <convert type="ClockToText">Format:%-H:%M</convert>
-		</widget>
-		<eLabel position="60,637" size="229,50" transparent="1" foregroundColor="#FFFFFF" backgroundColor="#2E64FE" text="Tuvuplus.com" font="Regular;30" zPosition="1" halign="center" valign="bottom" />
-		<eLabel position="611,181" size="629,431" transparent="0" foregroundColor="white" backgroundColor="#6e6e6e" zPosition="-10" />
-		<widget name="menu" position="641,140" size="629,431" scrollbarMode="showOnDemand" transparent="1" itemHeight="60" />
-		<widget source="session.VideoPicture" render="Pig" position="44,136" size="498,208" backgroundColor="transparent" zPosition="-1" transparent="0" />
-	</screen>"""
+  <eLabel position="533,681" size="148,4" backgroundColor="#00ff2525" zPosition="1" />
+	    <eLabel position="710,681" size="148,4" backgroundColor="#00389416" zPosition="1" />
+	    <eLabel position="887,681" size="148,4" backgroundColor="#00baa329" zPosition="1" />
+	    <eLabel position="1064,681" size="148,4" backgroundColor="#006565ff" zPosition="1" />
             
 
+ </screen>"""
 
 
 Cmenu_list = [_('Cams'),
@@ -170,7 +181,7 @@ class CmenuList(MenuList):
 
     def __init__(self, list):
         MenuList.__init__(self, list, False, eListboxPythonMultiContent)
-        self.l.setItemHeight(20)
+        self.l.setItemHeight(50)
         self.l.setFont(0, gFont('Regular', 32)) 
         
         
@@ -271,7 +282,7 @@ class Panel(Screen):
 	                   		
 class iptv(Screen):
     def __init__(self, session):
-        self.skin = SCREEN_INI
+        self.skin = SCREEN_IPTV
         Screen.__init__(self, session)
         self.list = []
         self['key_red'] = Button(_('Exit'))
@@ -282,12 +293,12 @@ class iptv(Screen):
         self.icount = 0
         self['info'].setText('Pulse Exit para Salir..')
         self.timer = eTimer()
-        self.timer.callback.append(self.iptv)
+        self.timer.callback.append(self.creador)
         self.timer.start(100, 1)
         self['actions'] = ActionMap(['SetupActions', 'ColorActions'], {'ok': self.okClicked,
          'cancel': self.close}, -2)
 
-    def iptv(self):
+    def creador(self):
         self.session.open(Console,title = _("iptv"), cmdlist = ["sh /usr/lib/enigma2/python/Plugins/Extensions/TUVUPanel/scripts/iptv"])      
     
     def okClicked(self):
@@ -304,7 +315,7 @@ class iptv(Screen):
 
 class swap(Screen):
     def __init__(self, session):
-        self.skin = SCREEN_INI
+        self.skin = SCREEN_SWAP
         Screen.__init__(self, session)
         self.list = []
         self['key_red'] = Button(_('Exit'))
@@ -315,12 +326,12 @@ class swap(Screen):
         self.icount = 0
         self['info'].setText('Pulse Exit para Salir')
         self.timer = eTimer()
-        self.timer.callback.append(self.swap)
+        self.timer.callback.append(self.creador)
         self.timer.start(100, 1)
         self['actions'] = ActionMap(['SetupActions', 'ColorActions'], {'ok': self.okClicked,
          'cancel': self.close}, -2)
 
-    def swap(self):
+    def creador(self):
         self.session.open(Console,title = _("swap"), cmdlist = ["sh /usr/lib/enigma2/python/Plugins/Extensions/TUVUPanel/scripts/swap"])      
     
     def okClicked(self):
@@ -336,7 +347,7 @@ class swap(Screen):
 
 class clear_memory(Screen):
     def __init__(self, session):
-        self.skin = SCREEN_INI
+        self.skin = SCREEN_CLEAN_MEMORY
         Screen.__init__(self, session)
         self.list = []
         self['key_red'] = Button(_('Exit'))
@@ -347,12 +358,12 @@ class clear_memory(Screen):
         self.icount = 0
         self['info'].setText('Pulse Exit para Salir')
         self.timer = eTimer()
-        self.timer.callback.append(self.memory)
+        self.timer.callback.append(self.creador)
         self.timer.start(100, 1)
         self['actions'] = ActionMap(['SetupActions', 'ColorActions'], {'ok': self.okClicked,
          'cancel': self.close}, -2)
 
-    def memory(self):
+    def creador(self):
         self.session.open(Console,title = _("memoria"), cmdlist = ["sh /usr/lib/enigma2/python/Plugins/Extensions/TUVUPanel/scripts/mem"])      
     
     def okClicked(self):
@@ -380,47 +391,13 @@ class Download(Screen):
         self.icount = 0
         self['info'].setText('Pulse Exit para Salir')
         self.timer = eTimer()
-        self.timer.callback.append(self.descargas)
+        self.timer.callback.append(self.creador)
         self.timer.start(100, 1)
         self['actions'] = ActionMap(['SetupActions', 'ColorActions'], {'ok': self.okClicked,
          'cancel': self.close}, -2)
 
-    def descargas(self):
+    def creador(self):
         self.session.open(cams.installextra)      
-    
-    def okClicked(self):
-        if self.downloading == True:
-            try:
-                selection = str(self['list'].getCurrent())
-                self.session.open(SelectIpk, self.xmlparse, selection)
-            except:
-                return
-
-        else:
-            self.close
-
-
-class Cams(Screen):
-  
-    def __init__(self, session):
-        self.skin = SCREEN_DOWNLOADS
-        Screen.__init__(self, session)
-        self.list = []
-        self['key_red'] = Button(_('Exit'))
-        self['list'] = MenuList([])
-        self['info'] = Label()
-        self['fspace'] = Label()
-        self.addon = 'emu'
-        self.icount = 0
-        self['info'].setText('Pulse Exit para Salir')
-        self.timer = eTimer()
-        self.timer.callback.append(self.emus)
-        self.timer.start(100, 1)
-        self['actions'] = ActionMap(['SetupActions', 'ColorActions'], {'ok': self.okClicked,
-         'cancel': self.close}, -2)
-
-    def emus(self):
-        self.session.open(softcam.installextra)      
     
     def okClicked(self):
         if self.downloading == True:

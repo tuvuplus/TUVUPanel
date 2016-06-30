@@ -79,7 +79,7 @@ class installextra(Screen):
             return False
 
     def downloadxmlpage(self):
-        url = 'http://tuvuplus.com/app/files/servidor.xml'
+        url = 'http://elbazarsat.com/bzsat/bzplugins/servidor.xml'
         getPage(url).addCallback(self._gotPageLoad).addErrback(self.errorLoad)
 
     def errorLoad(self, error):
